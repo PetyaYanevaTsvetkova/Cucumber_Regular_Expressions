@@ -37,13 +37,14 @@ public class CompareWordsSteps {
     @Then("Verification if the words are equal")
     public void verificationOfTheWordsAreEqual() {
         if (isCaseSensitive) {
-            System.out.println("The words are not equal when the case sensitive is set on true");
-            Assertions.assertFalse(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive));
+            Assertions.assertFalse(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive),
+                    "The words are not equal when case sensitive is set on true");
         } else {
             System.out.println("Words are equal");
             System.out.println("The first word is " + firstWord);
             System.out.println("The second word is " + secondWord);
-            Assertions.assertTrue(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive));
+            Assertions.assertTrue(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive),
+                    "The words should be equals when the case sensitive is set on false");
         }
     }
 
@@ -55,5 +56,5 @@ public class CompareWordsSteps {
     @And("^I remove all occurrences of digit (\\d)$")
     public void iRemoveAllOccurrencesOfDigit(int digit) {
         firstWord = firstWord.replaceAll(String.valueOf(digit), "");
-         }
+    }
 }
