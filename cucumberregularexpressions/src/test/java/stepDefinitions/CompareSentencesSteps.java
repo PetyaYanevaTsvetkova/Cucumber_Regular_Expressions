@@ -1,4 +1,5 @@
 package stepDefinitions;
+
 import helper.StringHelper;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
@@ -6,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import org.junit.jupiter.api.Assertions;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,13 +39,13 @@ public class CompareSentencesSteps {
     @Then("Verify if sentences are equal")
     public void verifyIfSentencesAreEqual() {
         if (isCaseSensitive) {
-            System.out.println("Sentences are not equal");
             Assertions.assertFalse(StringHelper.areSentencesEqual
-                    (firstSentence, secondSentence, isCaseSensitive));
+                            (firstSentence, secondSentence, isCaseSensitive),
+                    "The test fail: Sentences are equal");
         } else {
-            System.out.println("Sentences are equal");
             Assertions.assertTrue(StringHelper.areSentencesEqual
-                    (firstSentence, secondSentence, isCaseSensitive));
+                            (firstSentence, secondSentence, isCaseSensitive),
+                    "Test fail: Sentences are not equal");
         }
     }
 
