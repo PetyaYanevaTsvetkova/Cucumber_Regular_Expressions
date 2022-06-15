@@ -41,11 +41,11 @@ public class CompareSentencesSteps {
         if (isCaseSensitive) {
             Assertions.assertFalse(StringHelper.areSentencesEqual
                             (firstSentence, secondSentence, isCaseSensitive),
-                    "The test fail: Sentences are equal");
+                    "The test fail: Sentences are equal when the case sensitive is set on true");
         } else {
             Assertions.assertTrue(StringHelper.areSentencesEqual
                             (firstSentence, secondSentence, isCaseSensitive),
-                    "Test fail: Sentences are not equal");
+                    "Test fail: Sentences are not equal when the case sensitive is set on false");
         }
     }
 
@@ -55,7 +55,8 @@ public class CompareSentencesSteps {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(bracket);
         if (matcher.find()) {
-            firstSentence = firstSentence.replaceFirst(String.format("\\%s", bracket), "");
+            firstSentence = firstSentence.replaceFirst
+                    (String.format("\\%s", bracket), "");
         }
     }
 
@@ -65,7 +66,8 @@ public class CompareSentencesSteps {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(symbol);
         while (matcher.find()) {
-            firstSentence = firstSentence.replaceAll(String.format("\\%s", symbol), "");
+            firstSentence = firstSentence.replaceAll(String.format
+                    ("\\%s", symbol), "");
             System.out.println(firstSentence);
         }
     }
