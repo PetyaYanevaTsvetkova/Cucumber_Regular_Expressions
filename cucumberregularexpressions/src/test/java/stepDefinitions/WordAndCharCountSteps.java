@@ -52,7 +52,7 @@ public class WordAndCharCountSteps {
         //   I am ,testing   whitespaces - is the count correct?
         if (matcher.find()) {
             textParagraph = textParagraph.replaceAll(String.format("\\s+\\%s", symbol), String.format("\\%s", symbol));
-                    }
+        }
     }
 
     @And("remove more than one consecutive whitespace chars with a single space")
@@ -61,5 +61,5 @@ public class WordAndCharCountSteps {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(textParagraph);
         textParagraph = matcher.replaceAll(" ");
-           }
+    }
 }

@@ -38,13 +38,13 @@ public class CompareWordsSteps {
     public void verificationOfTheWordsAreEqual() {
         if (isCaseSensitive) {
             Assertions.assertFalse(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive),
-                    "The words are not equal when case sensitive is set on true");
+                    "Test fail: The words are equal when case sensitive is set on true");
         } else {
             System.out.println("Words are equal");
             System.out.println("The first word is " + firstWord);
             System.out.println("The second word is " + secondWord);
             Assertions.assertTrue(StringHelper.areWordsEqual(firstWord, secondWord, isCaseSensitive),
-                    "The words should be equals when the case sensitive is set on false");
+                    "Test fail: The words are not equal when the case sensitive is set on false");
         }
     }
 
